@@ -51,10 +51,10 @@ If you run from the command line, the script takes two [optional] arguments: a f
   
 For instance:
 
-  ./img-to-64.js /some/path/to/images base64images.txt
+    ./img-to-64 /some/path/to/images base64images.txt
 
 Will output to `base64images.txt` data like so:
 
-  some_image_1.png : Rw0KGgoAAAANSU....
+    some_image_1.png : Rw0KGgoAAAANSU....
 
-  some_image_2.png : EUgAAAAUA...
+    some_image_2.png : EUgAAAAUA...
