@@ -1,4 +1,4 @@
-#!usr/bin/env node
+#!/usr/bin/env node
 
 var dir = process.argv[2] || './';
 var output = process.argv[3] || 'base64_images.txt';
@@ -25,21 +25,22 @@ function main() {
 
 module.exports.getImageStrings = function(options, callback) {
   options = options || {};
-  var files = options.files;
+  var srcFile = options.file;
+  var srcFiles = options.files;
   var css = options.css || false;
 
-  if (!files) {
+  if (!srcFile && !srcFiles) {
     return callback(null, '');
   }
 
-  if (!Array.isArray(files)) {
-    files = [ files ];
+  if (srcFile) {
+    srcFiles = [ srcFile ];
   }
 
   var strings = [];
   var counter = 0;
 
-  files.forEach(function(file) {
+  srcFiles.forEach(function(file) {
     getImageString(file, function(err, imageString) {
       if (err) {
         return callback(err, strings);
@@ -50,8 +51,8 @@ module.exports.getImageStrings = function(options, callback) {
       }
 
       strings.push(imageString);
-      if (++counter === files.length) {
-        callback(null, strings);
+      if (++counter === srcFiles.length) {
+        callback(null, srcFile && strings ? strings[0] : strings);
       }
     });
   });
@@ -84,13 +85,13 @@ function walkDirForImages(dir, callback) {
       return callback(err);
     }
 
-    imgFiles = [];
+    imgsrcFiles = [];
     files.forEach(function(file) {
       if (imgExtensions.indexOf(getFileExt(file)) !== -1) {
-        imgFiles.push(file);
+        imgsrcFiles.push(file);
       }
     });
-    callback(null, imgFiles);
+    callback(null, imgsrcFiles);
   });
 }
 
@@ -100,7 +101,7 @@ function writeImagesToFile(dir, images) {
     var image = path.join(dir, file);
     getImageString(image, function(err, imageString) {
       imageString = util.format('%s : %s\n\n', file, imageString);
-      fs.appendFileSync(output, imageString);
+      fs.appendsrcFilesync(output, imageString);
     });
   });
 }

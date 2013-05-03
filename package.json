@@ -1,0 +1,28 @@
+{
+  "name": "img-to-64",
+  "version": "0.1.0",
+  "description": "A library/stand-alone script to convert images into base64 strings",
+  "main": "img-to-64.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha tests/img-to-64-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mmaelzer/img-to-64.git"
+  },
+  "keywords": [
+    "images",
+    "base64",
+    "encoding",
+    "css"
+  ],
+  "author": "Mike Maelzer <mmaelzer@gmail.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "mocha": "~1.9.0"
+  }
+}
