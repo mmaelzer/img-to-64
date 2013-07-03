@@ -101,7 +101,7 @@ function writeImagesToFile(dir, images) {
     var image = path.join(dir, file);
     getImageString(image, function(err, imageString) {
       imageString = util.format('%s : %s\n\n', file, imageString);
-      fs.appendsrcFilesync(output, imageString);
+      fs.appendFileSync(output, imageString);
     });
   });
 }
