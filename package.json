@@ -1,6 +1,6 @@
 {
   "name": "img-to-64",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A library/stand-alone script to convert images into base64 strings",
   "main": "img-to-64.js",
   "directories": {
